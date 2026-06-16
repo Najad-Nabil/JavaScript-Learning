@@ -1,31 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Student Manager</h1>
+    <div class="container">
 
-    <input
-        type="text"
-        id="studentName"
-        placeholder="Enter student name"
-    >
+        <h1>Student Management System</h1>
 
-    <button id="addBtn" onclick="addName()">
-        Add Student
-    </button>
+        <div class="form-section">
 
-    <p id="alert"></p>
+            <h2>Add Student</h2>
 
-    <button id="showBtn" onclick="showAllStudents()">
-        Show Students
-    </button>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Student Name"
+            >
 
-    <hr>
+            <input
+                type="number"
+                id="studentAge"
+                placeholder="Age"
+            >
 
-    <div id="output">
+            <select id="studentCourse">
+                <option value="">Select Course</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+                <option value="FastAPI">FastAPI</option>
+            </select>
+
+            <label>
+                <input
+                    type="checkbox"
+                    id="isActive"
+                >
+                Active Student
+            </label>
+
+            <button id="addStudentBtn" onclick="addStudent()">
+                Add Student
+            </button>
+
+        </div>
+
+        <div class="search-section">
+
+            <h2>Search Student</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by name"
+            >
+
+            <button id="searchBtn">
+                Search
+            </button>
+
+            <button id="showAllBtn" onclick="showAllStudents()">
+                Show All
+            </button>
+
+        </div>
+
+        <div class="stats-section">
+
+            <h2>Statistics</h2>
+
+            <p id="totalStudents">
+                Total Students: 0
+            </p>
+
+            <p id="activeStudents">
+                Active Students: 0
+            </p>
+
+        </div>
+
+        <div class="filter-section">
+
+            <h2>Filter By Course</h2>
+
+            <select id="courseFilter">
+                <option value="All">All Courses</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+                <option value="FastAPI">FastAPI</option>
+            </select>
+
+        </div>
+
+        <div class="list-section">
+
+            <h2>Student List</h2>
+
+            <div id="studentList">
+
+            </div>
+
+        </div>
 
     </div>
 

@@ -1,29 +1,38 @@
-let student = [];
+let student = []
 
-let inputBox = document.getElementById("studentName");
-inputBox.addEventListener("keydown" , function(event){
-    if(event.key === "Enter"){
-        addName();
+function addStudent(){
+    let studentName = document.getElementById("studentName").value;
+    let studentAge = document.getElementById("studentAge").value;
+    let studentCourse = document.getElementById("studentCourse").value;
+    let studentIsActive = document.getElementById("isActive").checked;
+
+    studentDetails = {
+        studentName: studentName,
+        studentAge: studentAge,
+        studentCourse: studentCourse,
+        studentIsActive: studentIsActive
     }
-})
 
-function addName(){
-    let name = document.getElementById("studentName").value;
-    student.push(name);
-    document.getElementById("alert").textContent = "Student Added Successfully"
+    student.push(studentDetails);
+
+    let totalStudents = document.getElementById("totalStudents");
+    totalStudents.innerHTML = "";
+    totalStudents.textContent = ("Total Students: "+student.length);
+
+    let activeStudents = document.getElementById("activeStudents");
+    activeStudents.innerHTML = "";
+    let activeStudentNo = 0;
+    for(const i of student){
+        if(i.studentIsActive == true){
+            activeStudentNo++;
+        }
+    }
+    activeStudents.textContent = ("Active Students: "+activeStudentNo);
+
     document.getElementById("studentName").value = "";
-}
+    document.getElementById("studentAge").value = "";
+    document.getElementById("studentCourse").value = "";
+    document.getElementById("isActive").checked = false;
 
-function showAllStudents(){
-
-    let outputDiv = document.getElementById("output");
-    outputDiv.innerHTML = "";
-    let numberOfStudents = document.createElement("p")
-    numberOfStudents.textContent = ("Total number of students = "+student.length)
-    outputDiv.appendChild(numberOfStudents)
-    for(let i=0;i<student.length;i++){
-        let p = document.createElement("p");
-        p.textContent = ((i+1)+". "+student[i]);
-        outputDiv.appendChild(p);
-    }
+    
 }
