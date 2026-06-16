@@ -32,7 +32,16 @@ function addStudent(){
     document.getElementById("studentName").value = "";
     document.getElementById("studentAge").value = "";
     document.getElementById("studentCourse").value = "";
-    document.getElementById("isActive").checked = false;
+    document.getElementById("isActive").checked = false;  
+}
 
-    
+
+function showAllStudents(){
+    let studentList = document.getElementById("studentList");
+    studentList.innerHTML = "";
+    for(let i=0;i<student.length;i++){
+        let p = document.createElement("p");
+        p.textContent = ((i+1)+". Name: "+student[i].studentName+"\tAge: "+student[i].studentAge+"\tCourse: "+student[i].studentCourse)
+        studentList.appendChild(p);
+    }
 }

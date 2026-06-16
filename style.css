@@ -50,6 +50,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    white-space: pre-wrap;
 }
 
 .student-card {
@@ -65,3 +66,4 @@ button {
 .student-card button {
     margin-top: 10px;
 }
+
