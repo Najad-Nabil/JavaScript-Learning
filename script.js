@@ -1,5 +1,7 @@
 let student = []
 
+let dropdown = document.getElementById("courseFilter");
+
 function addStudent(){
     let studentName = document.getElementById("studentName").value;
     let studentAge = document.getElementById("studentAge").value;
@@ -62,3 +64,20 @@ function searchStudent(){
     studentInfo.textContent = ("Student named '"+studentName+"' not found.");
     studentList.appendChild(studentInfo);
 }
+
+studentList = document.getElementById("studentList");
+dropdown.addEventListener("change", () => {
+    switch(dropdown.value){
+        case "Python":
+            studentList.innerHTML = "";
+            for(const std of student){
+                if(std.studentCourse == "Python"){
+                    let studentInfo = document.createElement("p");
+                    studentInfo.textContent = ("Name : "+std.studentName+"\nAge : "+std.studentAge+"\nCourse : "+std.studentCourse);
+                    studentList.appendChild(studentInfo);
+                }
+            }
+
+        
+    }
+})
