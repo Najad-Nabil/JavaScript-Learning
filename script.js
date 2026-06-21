@@ -45,3 +45,20 @@ function showAllStudents(){
         studentList.appendChild(p);
     }
 }
+
+function searchStudent(){
+    let studentName = document.getElementById("searchInput").value;
+    document.getElementById("searchInput").value = "";
+    let studentList = document.getElementById("studentList");
+    studentList.innerHTML = "";
+    let studentInfo = document.createElement("p");
+    for(const std of student){
+        if(std.studentName == studentName){
+            studentInfo.textContent = ("Name : "+std.studentName+"\nAge : "+std.studentAge+"\nCourse : "+std.studentCourse);
+            studentList.appendChild(studentInfo);
+            return
+        }
+    }
+    studentInfo.textContent = ("Student named '"+studentName+"' not found.");
+    studentList.appendChild(studentInfo);
+}
